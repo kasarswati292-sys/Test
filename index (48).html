@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPLETEZONE| India's #1 eSports Platform</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --yellow: #FFD700;
+            --black: #000000;
+            --dark: #0d0d0d;
+            --grey: #1a1a1a;
+            --text: #ffffff;
+            --glow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* --- Smooth Scrolling --- */
+        html { scroll-behavior: smooth; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--black);
+            color: var(--text);
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Russo One', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Animations --- */
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes glowPulse { 0% { box-shadow: 0 0 5px var(--yellow); } 50% { box-shadow: 0 0 25px var(--yellow); } 100% { box-shadow: 0 0 5px var(--yellow); } }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* --- 1. Top Ticker --- */
+        .top-ticker {
+            background: var(--yellow);
+            color: #000;
+            padding: 10px 0;
+            font-weight: 700;
+            overflow: hidden;
+            white-space: nowrap;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 2000;
+            border-bottom: 2px solid #fff;
+        }
+        .ticker-content { display: inline-block; animation: marquee 30s linear infinite; }
+        .ticker-content span { margin-right: 60px; font-size: 14px; }
+
+        /* --- 2. Header --- */
+        header {
+            padding: 80px 0 20px; /* Offset for ticker */
+            background: var(--black);
+            border-bottom: 1px solid #333;
+        }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; color: var(--yellow); }
+        .live-dot { height: 10px; width: 10px; background: red; border-radius: 50%; display: inline-block; animation: blink 1s infinite; }
+
+        /* --- 3. Hero Section --- */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            border-bottom: 2px solid var(--yellow);
+        }
+        .hero h1 { font-size: clamp(45px, 10vw, 90px); line-height: 0.9; margin-bottom: 20px; color: var(--yellow); }
+        .hero p { font-size: 20px; color: #ccc; margin-bottom: 40px; }
+        .promo-box {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px dashed var(--yellow);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        .btn-xl {
+            padding: 22px 60px;
+            background: var(--yellow);
+            color: #000;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            display: inline-block;
+            animation: glowPulse 2s infinite;
+            transition: 0.3s;
+        }
+        .btn-xl:hover { transform: scale(1.05); background: #fff; }
+
+        /* --- 4. Stats Bar --- */
+        .stats-bar {
+            background: var(--grey);
+            padding: 40px 0;
+            margin: -30px auto 0;
+            border-radius: 20px;
+            border: 1px solid #333;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .stat-item { text-align: center; flex: 1; min-width: 150px; }
+        .stat-item i { font-size: 35px; color: var(--yellow); margin-bottom: 10px; }
+        .stat-item h3 { font-size: 30px; }
+        .stat-item p { color: #888; font-size: 14px; }
+
+        /* --- 5. Game Lobby --- */
+        .game-lobby { padding: 100px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 40px; color: var(--yellow); }
+        .section-title div { width: 80px; height: 4px; background: var(--yellow); margin: 10px auto; }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .game-card {
+            background: var(--grey);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: 0.4s;
+            position: relative;
+        }
+        .game-card:hover { border-color: var(--yellow); transform: translateY(-10px); }
+        .game-img-placeholder { 
+            width: 100%; height: 180px; background: #222; 
+            display: flex; align-items: center; justify-content: center;
+        }
+        .game-img-placeholder i { font-size: 60px; color: var(--yellow); opacity: 0.5; }
+        .game-info { padding: 25px; }
+        .game-tag { background: var(--yellow); color: #000; padding: 2px 10px; font-weight: bold; font-size: 12px; border-radius: 4px; }
+
+        /* --- 6. How To Play --- */
+        .how-to { 
+            background: var(--yellow); 
+            color: #000; 
+            padding: 100px 0; 
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); 
+            margin: 60px 0;
+        }
+        .step-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-top: 50px; }
+        .step-card { flex: 1; min-width: 250px; text-align: center; padding: 20px; }
+        .step-icon { font-size: 50px; margin-bottom: 20px; }
+        .step-card h3 { margin-bottom: 15px; font-size: 24px; }
+
+        /* --- 7. Hall of Fame (Leaderboard) --- */
+        .leaderboard { padding: 80px 0; background: #050505; }
+        .lb-box { background: var(--grey); border-radius: 30px; padding: 40px; border: 1px solid #333; max-width: 850px; margin: 0 auto; }
+        .player-row {
+            display: flex; align-items: center; padding: 20px;
+            border-bottom: 1px solid #222; transition: 0.3s;
+        }
+        .player-row:last-child { border-bottom: none; }
+        .player-row:hover { background: #252525; transform: scale(1.02); }
+        .rank-num { font-size: 28px; font-family: 'Russo One'; width: 50px; color: var(--yellow); }
+        .p-img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--yellow); margin-right: 20px; }
+        .p-name { flex-grow: 1; font-size: 20px; font-weight: bold; }
+        .p-prize { font-size: 22px; color: var(--yellow); font-family: 'Russo One'; }
+
+        /* --- 8. Testimonials --- */
+        .testimonials { padding: 100px 0; background: var(--black); }
+        .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .test-card { background: #111; padding: 30px; border-radius: 15px; border-left: 5px solid var(--yellow); }
+        .stars { color: var(--yellow); margin-bottom: 10px; }
+
+        /* --- 9. FAQ --- */
+        .faq { padding: 100px 0; background: var(--grey); }
+        details { background: #111; margin-bottom: 15px; padding: 20px; border-radius: 10px; cursor: pointer; border: 1px solid #222; }
+        summary { font-size: 18px; font-weight: bold; color: var(--yellow); outline: none; }
+        details p { margin-top: 15px; color: #aaa; }
+
+        /* --- 10. Footer --- */
+        footer { padding: 80px 0 40px; border-top: 4px solid var(--yellow); background: #000; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; }
+        .footer-logo h2 { color: var(--yellow); margin-bottom: 20px; }
+        .footer-links h4 { margin-bottom: 20px; color: var(--yellow); }
+        .footer-links p { margin-bottom: 10px; color: #888; cursor: pointer; transition: 0.2s; }
+        .footer-links p:hover { color: #fff; }
+
+        .social-circle {
+            height: 45px; width: 45px; background: var(--grey); display: inline-flex;
+            align-items: center; justify-content: center; border-radius: 50%;
+            margin-right: 10px; color: var(--yellow); font-size: 20px; transition: 0.3s;
+            text-decoration: none;
+        }
+        .social-circle:hover { background: var(--yellow); color: #000; }
+
+        .telegram-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #0088cc; color: white; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 30px; z-index: 5000; animation: float 3s infinite ease-in-out;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            text-decoration: none;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 45px; }
+            .hero p { font-size: 16px; }
+            .btn-xl { width: 100%; text-align: center; font-size: 18px; }
+            .stats-bar { margin-top: 20px; }
+            .nav-flex { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Top Ticker -->
+    <div class="top-ticker">
+        <div class="ticker-content">
+            <span>🚀 @Rahul_07 won <b>₹2,500</b> in BGMI TDM</span>
+            <span>🔥 <b>₹15,40,000</b> Total Winnings distributed today!</span>
+            <span>💎 New Ludo Tournament starts in <b>15 Minutes</b></span>
+            <span>✅ Instant Withdrawal of ₹5,000 processed for user @PlayerX</span>
+            <span>🏆 Join the Mega Battle for <b>₹10,00,000</b> Prize Pool!</span>
+        </div>
+    </div>
+
+    <!-- 2. Header -->
+    <header>
+        <div class="container nav-flex">
+            <div class="logo">
+                <i class="fas fa-bolt"></i> COMPLETEZONE
+            </div>
+            <div style="font-weight: bold; letter-spacing: 1px;">
+                <span class="live-dot"></span> 14,205 PLAYERS ONLINE
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>PLAY GAMES.<br>WIN <span style="color:white;">REAL CASH.</span></h1>
+            <p>India's Most Professional eSports Platform for Serious Gamers.</p>
+            
+            <div class="promo-box">
+                <span style="color: #888; font-size: 14px; display: block; margin-bottom: 5px;">SIGNUP BONUS CODE</span>
+                <span style="font-size: 24px; font-weight: bold; color: var(--yellow); letter-spacing: 3px;">READY089</span>
+            </div>
+            
+            <div style="margin-top: 10px;">
+                <a href="#" class="btn-xl"><i class="fab fa-android"></i> DOWNLOAD & GET ₹50</a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar container">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <h3>10k+</h3>
+                    <p>TRUSTED USERS</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-trophy"></i>
+                    <h3>₹5K+</h3>
+                    <p>MONTHLY PRIZES</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-shield-check"></i>
+                    <h3>100%</h3>
+                    <p>SAFE & SECURE</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <h3>4.8/5</h3>
+                    <p>APP RATING</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Game Lobby -->
+    <section class="game-lobby">
+        <div class="container">
+            <div class="section-title">
+                <h2>AVAILABLE BATTLES</h2>
+                <div></div>
+                <p>Select your game and start competing for glory.</p>
+            </div>
+
+            <div class="game-grid">
+                <!-- BGMI -->
+                <div class="game-card">
+                    <div class="game-img-placeholder"><i class="fas fa-gun"></i></div>
+                    <div class="game-info">
+                        <span class="game-tag">POPULAR</span>
+                        <h3 style="margin: 10px 0;">BGMI MOBILE</h3>
+                        <p style="color: #888; font-size: 14px;">Solo, Duo & Squad Tournaments with huge prize pools.</p>
+                    </div>
+                </div>
+                <!-- Ludo -->
+                <div class="game-card">
+                    <div class="game-img-placeholder"><i class="fas fa-dice"></i></div>
+                    <div class="game-info">
+                        <span class="game-tag">INSTANT CASH</span>
+                        <h3 style="margin: 10px 0;">LUDO SUPREME</h3>
+                        <p style="color: #888; font-size: 14px;">Simple, fast-paced 1vs1 matches with instant payout.</p>
+                    </div>
+                </div>
+                <!-- Free Fire -->
+                <div class="game-card">
+                    <div class="game-img-placeholder"><i class="fas fa-fire"></i></div>
+                    <div class="game-info">
+                        <span class="game-tag">FAST PACED</span>
+                        <h3 style="margin: 10px 0;">FREE FIRE MAX</h3>
+                        <p style="color: #888; font-size: 14px;">Daily survivor battles for the ultimate reward.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. How To Play -->
+    <section class="how-to">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 40px;">HOW TO START WINNING</h2>
+            <div class="step-container">
+                <div class="step-card">
+                    <div class="step-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>1. DOWNLOAD</h3>
+                    <p>Download the official APK, install, and register with your mobile number.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon"><i class="fas fa-sword"></i></div>
+                    <h3>2. COMPETE</h3>
+                    <p>Pick your favorite game, pay a small entry fee, and join the live lobby.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <h3>3. WITHDRAW</h3>
+                    <p>Win your matches and transfer your prize money instantly to your bank account.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Leaderboard (Hall of Fame) -->
+    <section class="leaderboard">
+        <div class="container">
+            <div class="section-title">
+                <h2>HALL OF FAME</h2>
+                <div></div>
+                <p>The elite warriors of this month.</p>
+            </div>
+
+            <div class="lb-box">
+                <!-- Rank 1 -->
+                <div class="player-row">
+                    <div class="rank-num">01</div>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8pHSUEgCT9jy1i74GLSNQ8BfDzgEdtqRIpaBt4p3c1LP9hmtUjt_SNOXc9kUrRSJVGDawZsk1plqNMmiekF7E93_JWsAKZjfVcVYzDFFnglKTgpCBf7FsnrEJzure83gJXjSIbPoCGre6qhs60W9e9ahzyqZKPSdty7WqF2OGUYKgxgK8FKJNzU_waSdf/s320/20250131_145827.png" class="p-img" alt="Player">
+                    <div class="p-name">Abhinav Rajput</div>
+                    <div class="p-prize">₹8200</div>
+                </div>
+                <!-- Rank 2 -->
+                <div class="player-row">
+                    <div class="rank-num">02</div>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8pHSUEgCT9jy1i74GLSNQ8BfDzgEdtqRIpaBt4p3c1LP9hmtUjt_SNOXc9kUrRSJVGDawZsk1plqNMmiekF7E93_JWsAKZjfVcVYzDFFnglKTgpCBf7FsnrEJzure83gJXjSIbPoCGre6qhs60W9e9ahzyqZKPSdty7WqF2OGUYKgxgK8FKJNzU_waSdf/s320/20250131_145827.png" class="p-img" alt="Player">
+                    <div class="p-name">Abhishek Shekhawat</div>
+                    <div class="p-prize">₹5400</div>
+                </div>
+                <!-- Rank 3 -->
+                <div class="player-row">
+                    <div class="rank-num">03</div>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8pHSUEgCT9jy1i74GLSNQ8BfDzgEdtqRIpaBt4p3c1LP9hmtUjt_SNOXc9kUrRSJVGDawZsk1plqNMmiekF7E93_JWsAKZjfVcVYzDFFnglKTgpCBf7FsnrEJzure83gJXjSIbPoCGre6qhs60W9e9ahzyqZKPSdty7WqF2OGUYKgxgK8FKJNzU_waSdf/s320/20250131_145827.png" class="p-img" alt="Player">
+                    <div class="p-name">Sumit Sharma</div>
+                    <div class="p-prize">₹2000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>QUESTIONS?</h2>
+                <div></div>
+            </div>
+            <details>
+                <summary>Is COMPLETEZONE legal in India?</summary>
+                <p>Yes, eSports is classified as a 'Game of Skill' and is 100% legal to play for real money in India, except in states like Assam, Odisha, and Telangana.</p>
+            </details>
+            <details>
+                <summary>How do I withdraw my winnings?</summary>
+                <p>Navigate to your wallet, click 'Withdraw', enter your UPI ID or Bank details, and the money will be credited in minutes.</p>
+            </details>
+            <details>
+                <summary>Can I play for free?</summary>
+                <p>Yes, we host daily free-to-join 'Practice Scrims' where you can sharpen your skills without any entry fee.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h2>COMPLETEZONE</h2>
+                    <p>India's leading eSports tournament platform. Built for gamers, by gamers.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>QUICK LINKS</h4>
+                    <p>Privacy Policy</p>
+                    <p>Terms & Conditions</p>
+                    <p>Responsible Gaming</p>
+                    <p>Contact Support</p>
+                </div>
+                <div class="footer-links">
+                    <h4>FOLLOW US</h4>
+                    <div style="margin-top: 20px;">
+                        <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid #222; padding-top: 30px;">
+                <p style="color: #444; font-size: 12px; margin-bottom: 20px;">
+                    DISCLAIMER: This game involves an element of financial risk and may be addictive. Please play respon
