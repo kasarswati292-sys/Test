@@ -1,0 +1,210 @@
+[
+  {
+    "name": "Text seletable",
+    "code": "textview1.setTextIsSelectable(true);"
+  },
+  {
+    "name": "Action bar hide",
+    "code": "getSupportActionBar().hide();"
+  },
+  {
+    "name": "Notification ofline ",
+    "code": "Notification.Builder mBuilder = new Notification.Builder(MainActivity.this);mBuilder.setSmallIcon(R.drawable.default_image);mBuilder.setContentTitle(_title);mBuilder.setContentText(_message);NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);int onx = 1;notificationManager.notify(onx, mBuilder.build());\n\n-------------------------------------\nCreate a more block"
+  },
+  {
+    "name": "Listview in drawer",
+    "code": "Add Source 1\nListView listview1 = new ListView(this);\nLinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(\nLinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);\nlistview1.setLayoutParams(lp1);\n\nlistview1.setAdapter(new ArrayAdapter(getBaseContext(), android.R.layout.simple_list_item_1, drawer_list));\n\n_drawer_linear2.addView(listview1);\n\nAdd source 2\nlistview1.setOnItemClickListener( new AdapterView.OnItemClickListener() {\n@Override\npublic void onItemClick(\nAdapterView _parent, View _view, final int _position, long _id) {\nswitch (_position){\n\ncase 0:\n\nAdd Source 3\nbreak;\n\ncase 1:\n\nAdd Source 4\nbreak;\n\ncase 2:\n\nAdd Source 5\nbreak;\n\ncase 3:\n\nlist Add source 6\nbreak;\n}\n}});"
+  },
+  {
+    "name": "Tab CODES ",
+    "code": "Add Source 1\nandroid.support.design.widget.TabLayout tabLayout = new android.support.design.widget.TabLayout(this);\n\ntabLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));\n\ntabLayout.setTabGravity(tabLayout.GRAVITY_FILL);\n\ntabLayout.setSelectedTabIndicatorColor(Color.parseColor(\"#ffffff\"));\ntabLayout.setTabTextColors(Color.parseColor(\"#ffffff\"), Color.parseColor(\"#ffffff\"));\n\ntabLayout.addTab(tabLayout.newTab().setText(\"Tab1\")); tabLayout.addTab(tabLayout.newTab().setText(\"Tab2\"));\n((android.support.design.widget.AppBarLayout) _toolbar.getParent()).addView(tabLayout);\ntabLayout.addOnTabSelectedListener(new android.support.design.widget.TabLayout.OnTabSelectedListener(){\n@Override\npublic void onTabSelected(android.support.design.widget.TabLayout.Tab tab){\nswitch(tab.getText().toString()){\ncase \"Tab1\":\n_tab1();\nbreak;\ncase \"Tab2\":\n_tab2();\nbreak;\n}\n}\n@Override\npublic void onTabReselected(android.support.design.widget.TabLayout.Tab tab){\n}\n@Override\npublic void onTabUnselected(android.support.design.widget.TabLayout.Tab tab){\n}\n});\n\n************************************\nCreate a three More Block\n(1) TabLouat\n(2) tab1\n(3) tab2\n"
+  },
+  {
+    "name": "Custom progress bar",
+    "code": "final AlertDialog dialog = new AlertDialog.Builder(HomeActivity.this).create();\nView inflate = getLayoutInflater ().inflate(R.layout.prog, null);\ndialog.setView(inflate);\ndialog.setCancelable(false);\ndialog.show();\n\n***********************************\ndialog. hide();"
+  },
+  {
+    "name": "Bottomsheet",
+    "code": "Add Source 1\nfinal\ncom.google.android.material.bottomsheet.BottomSheetDialog bs_base = new com.google.android.material.bottomsheet.BottomSheetDialog(MainActivity.this);\n\nbs_base.setCancelable(true);\n\nView layBase = getLayoutInflater().inflate(R.layout.custom, null);\n\nbs_base.setContentView(layBase);\n\nButton button1 = (Button)layBase.findViewById(R.id.button1);\n\nButton button2 = (Button)layBase.findViewById(R.id.button2);\n\nButton button3 = (Button)layBase.findViewById(R.id.button3);\n\nAdd Source 2\nbutton1.setOnClickListener(new OnClickListener() {\n\npublic void onClick(View view) {\n\nbs_base.hide();\n\nAdd Source 3\nbutton2.setOnClickListener(new OnClickListener() {\n\npublic void onClick(View view) {\n\nbs_base.hide();\n\nAdd Source 4\nbutton3.setOnClickListener(new OnClickListener() {\n\npublic void onClick(View view) {\n\nbs_base.hide();\n\nAdd Source 5\n}\n});\nbs_base.show();\n\n*****************\nCreate a Custom Activity\nName = custom"
+  },
+  {
+    "name": "Dialog set cancelable",
+    "code": "dialog_name.setCancelable(false);"
+  },
+  {
+    "name": "Text colour code",
+    "code": "textview1.setTextColor(Color.parseColor(\"#000000\"));"
+  },
+  {
+    "name": "Share text",
+    "code": "Intent i = new Intent(android.content.Intent.ACTION_SEND);i.setType(\"text/plain\"); i.putExtra(android.content.Intent.EXTRA_TEXT,share); startActivity(Intent.createChooser(i,\"share using\"));"
+  },
+  {
+    "name": "Get app version",
+    "code": "try {android.content.pm.PackageInfo pinfo = getPackageManager().getPackageInfo(package_name, android.content.pm.PackageManager.GET_ACTIVITIES);ver = pinfo.versionName; }catch (Exception e){ showMessage(e.toString()); }\n\n create a two Variables (String)\n(1)package_name\n(2)ver\ndon't change this Variables\n"
+  },
+  {
+    "name": "Dialog theams",
+    "code": "(1) theme Code\ndialog = new AlertDialog.Builder(this,AlertDialog.THEME_TRADITIONAL);\n\n(2) theme Code\ndialog = new AlertDialog.Builder(this,AlertDialog.THEME_DEVICE_DEFAULT_DARK);\n\n(3) theme Code\ndialog = new AlertDialog.Builder(this,AlertDialog.THEME_HOLO_LIGHT);\n\n{1} Set dialog text color\nsetTheme(android.R.style.Theme_Material);\n\n{2} Set dialog text color\nsetTheme(android.R.style.Theme_Material_Light);\n\n(4) theme Code\ndialog = new AlertDialog.Builder(this,AlertDialog.THEME_DEVICE_DEFAULT_DARK);\n\n(5) theme Code\ndialog = new AlertDialog.Builder(this,AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);\n\n \nCreate a dialog\ndialog"
+  },
+  {
+    "name": "Subtitle code",
+    "code": "getActionBar().setSubtitle(\"string\");\n\n Create a one variable string\n(1) string"
+  },
+  {
+    "name": "Set icon to dialog",
+    "code": "Dialog.setIcon(R.drawable.image name_here);"
+  },
+  {
+    "name": "Set gif",
+    "code": "url = \"android.resource://\" +\ngetPackageName() + \"/raw/image name\";\n\n\nCreate a variable\n(1) url"
+  },
+  {
+    "name": "Set statusbar colour",
+    "code": "Window w = MainActivity.this.getWindow();w.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);w.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS); w.setStatusBarColor(Color.parseColor(\"#FFFFFF\"));"
+  },
+  {
+    "name": "Get youtube thumbnail",
+    "code": " Bitmap bMap = ThumbnailUtils.createVideoThumbnail(file, android.provider.MediaStore.Video.Thumbnails.MICRO_KIND);\n \nimageview1.setImageBitmap(bMap);\n \n"
+  },
+  {
+    "name": "Set text visible",
+    "code": "Drawer Textview\n_drawer_textview1.setVisibility(View.VISIBLE);\n\n_drawer_textview1.setVisibility(View.GONE);\n\nTextview\ntextview1.setVisibility(View.VISIBLE);\n\ntextview1.setVisibility(View.GONE);"
+  },
+  {
+    "name": "Exit application",
+    "code": "finishAffinity();"
+  },
+  {
+    "name": "Checkbox icon",
+    "code": "checkbox1.setButtonDrawable(R.drawable.iconname);"
+  },
+  {
+    "name": "Edittext in dialog",
+    "code": "final EditText edittxt1 = new EditText(MainActivity.this);\nedittxt1.setText(\"name\");\ndialog.setView(edittxt1);\n\n*************************************\nString = edittxt1.getText().toString();\n\ndialog name ( dialog ) same\n"
+  },
+  {
+    "name": "Password show & hide",
+    "code": "//Password Hide code\nedittext1.setTransformationMethod(android.text.method.PasswordTransformationMethod.getInstance());\n\n\n//Password Show code\nedittext1.setTransformationMethod(android.text.method.HideReturnsTransformationMethod.getInstance());"
+  },
+  {
+    "name": "Bottom navigationbar",
+    "code": "Source Code 1 :-\n android.support.design.widget.BottomNavigationView btm= new android.support.design.widget.BottomNavigationView(this); btm.setLayoutParams(new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)); linear1.addView(btm); linear1.setElevation(16); Menu menu = btm.getMenu();\nmenu.add(0, 0, 0, \"Home\").setIcon(R.drawable.home); menu.add(0, 1, 0, \"Codes\").setIcon(R.drawable.code); menu.add(0, 2, 0, \"Projects\").setIcon(R.drawable.project); menu.add(0, 3, 0, \"Tutorials\").setIcon(R.drawable.tutorial); menu.add(0, 4, 0, \"Fonts\").setIcon(R.drawable.font);\n\n Source Code 2 :- btm.setOnNavigationItemSelectedListener(new android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener() { @Override public boolean onNavigationItemSelected(final MenuItem item) { switch (item.getItemId()){ case 0:\n\n break; case 1:\n\n break; case 2:\n\n break; case 3:\n\n break; case 4:\n\n break; } return true; } });"
+  },
+  {
+    "name": "Listview animation",
+    "code": "Animation animation; animation = AnimationUtils.loadAnimation( getContext().getApplicationContext(), android.R.anim.slide_in_left ); animation.setDuration(200); linear1.startAnimation(animation); animation = null;"
+  },
+  {
+    "name": "Set gravity",
+    "code": "linear1.setGravity(Gravity.RIGHT);\n\nlinear1.setGravity(Gravity.LEFT);"
+  },
+  {
+    "name": "Set wallpaper",
+    "code": "WallpaperManager myWallpaperManager = WallpaperManager.getInstance(getContext().getApplicationContext()); try{ myWallpaperManager.setResource(R.drawable.wallpaper name); }catch (Exception g) { g.printStackTrace(); } \n"
+  },
+  {
+    "name": "Set elevation or shadow",
+    "code": "this is code for moreblock\n\n_view.setElevation((int)_number);\n\n********************************\n//and this is normal code\n\nlinear1.setElevation(10f);"
+  },
+  {
+    "name": "Create a popup menu",
+    "code": "more block use more block name\n(1) MENU\n \nAdd source 1\n}\n@Override\npublic boolean onCreateOptionsMenu (Menu menu){\nmenu.add(0, 0, 0, \"Copy Text\");\nmenu.add(0, 1, 1, \"Copy Title\");\nmenu.add(0, 2, 2, \"Word Count\");\nreturn true;\n}\n @Override\npublic boolean onOptionsItemSelected(MenuItem item){\nswitch (item.getItemId()){\ncase 0:\n\nAdd source 2\nbreak;\ncase 1:\n\nAdd source 3\n\nbreak;\ncase 2:\n\nAdd source 4\n\nbreak;\n}\nreturn super.onOptionsItemSelected(item);"
+  },
+  {
+    "name": "App list with icon (installed)",
+    "code": "Intent startupIntent = new Intent(Intent.ACTION_MAIN); \t\tstartupIntent.addCategory(Intent.CATEGORY_LAUNCHER);  \t\tfinal android.content.pm.PackageManager pm = getPackageManager(); \t\tList<android.content.pm.ResolveInfo> activities = pm.queryIntentActivities(startupIntent,0);   \t\tCollections.sort(activities, new Comparator<android.content.pm.ResolveInfo>() {  \t\t\t\tpublic int compare(android.content.pm.ResolveInfo a, android.content.pm.ResolveInfo b) {  \t\t\t\t\tandroid.content.pm.PackageManager pm = getPackageManager();  \t\t\t\t\treturn String.CASE_INSENSITIVE_ORDER.compare(  \t\t\t\t\t\ta.loadLabel(pm).toString(),  \t\t\t\t\t\tb.loadLabel(pm).toString());  \t\t\t\t}  \t\t\t});   \t\tArrayAdapter<android.content.pm.ResolveInfo> adapter = new ArrayAdapter<android.content.pm.ResolveInfo>(  \t\t\tthis, android.R.layout.simple_list_item_1, activities) {  \t\t\tpublic View getView(int pos, View convertView, ViewGroup parent) { TextView tv = new TextView(MainActivity.this);  \t\t\t\tandroid.content.pm.ResolveInfo ri = getItem(pos);  \t\t\ttv.setText(ri.loadLabel(pm));  \tLinearLayout lin = new LinearLayout(MainActivity.this);ImageView iv = new ImageView(MainActivity.this);iv.setImageDrawable(ri.loadIcon(pm));lin.addView(iv);lin.addView(tv);tv.setGravity(Gravity.CENTER_VERTICAL);tv.setPadding(16,0,0,0);tv.setTextSize(16);tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT ));LinearLayout.LayoutParams p =\tnew LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.MATCH_PARENT);p.width = 70;p.height = 70;p.bottomMargin = 4;p.topMargin = 4;iv.setLayoutParams(p);lin.setPadding(6,6,6,6);return lin;  \t\t\t}  \t\t};  \t\tlistview1.setAdapter(adapter); \t\t \t\tlistview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {  \t\t\t\t@Override \t\t\t\tpublic void onItemClick(AdapterView adapter, View v, int position, long id) \t\t\t\t{ \t\t\t\t\tandroid.content.pm.ResolveInfo resolveInfo = (android.content.pm.ResolveInfo)adapter.getItemAtPosition(position);  \t\t\t\t\tandroid.content.pm.ActivityInfo activityInfo = resolveInfo.activityInfo;  \t\t\t\t\tif (activityInfo == null) return;  \t\t\t\t\tIntent i = new Intent(Intent.ACTION_MAIN);  \t\t\t\t\ti.setClassName(activityInfo.applicationInfo.packageName, activityInfo.name);  \t\t\t\t\tstartActivity(i); \t\t\t\t}  \t\t\t \t\t});;"
+  },
+  {
+    "name": "App list without icon( installed)",
+    "code": "Intent startupIntent = new Intent(Intent.ACTION_MAIN); \t\tstartupIntent.addCategory(Intent.CATEGORY_LAUNCHER);  \t\tfinal android.content.pm.PackageManager pm = getPackageManager(); \t\tList<android.content.pm.ResolveInfo> activities = pm.queryIntentActivities(startupIntent,0);   \t\tCollections.sort(activities, new Comparator<android.content.pm.ResolveInfo>() {  \t\t\t\tpublic int compare(android.content.pm.ResolveInfo a, android.content.pm.ResolveInfo b) {  \t\t\t\t\tandroid.content.pm.PackageManager pm = getPackageManager();  \t\t\t\t\treturn String.CASE_INSENSITIVE_ORDER.compare(  \t\t\t\t\t\ta.loadLabel(pm).toString(),  \t\t\t\t\t\tb.loadLabel(pm).toString());  \t\t\t\t}  \t\t\t});   \t\tArrayAdapter<android.content.pm.ResolveInfo> adapter = new ArrayAdapter<android.content.pm.ResolveInfo>(  \t\t\tthis, android.R.layout.simple_list_item_1, activities) {  \t\t\tpublic View getView(int pos, View convertView, ViewGroup parent) {  \t\t\t\tView v = super.getView(pos, convertView, parent);  \t\t\t\tTextView tv = (TextView)v;  \t\t\t\tandroid.content.pm.ResolveInfo ri = getItem(pos);  \t\t\t\ttv.setText(ri.loadLabel(pm));  \t\t\t\treturn v;  \t\t\t}  \t\t};  \t\tlistview1.setAdapter(adapter); \t\t \t\tlistview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {  \t\t\t\t@Override \t\t\t\tpublic void onItemClick(AdapterView adapter, View v, int position, long id) \t\t\t\t{ \t\t\t\t\tandroid.content.pm.ResolveInfo resolveInfo = (android.content.pm.ResolveInfo)adapter.getItemAtPosition(position);  \t\t\t\t\tandroid.content.pm.ActivityInfo activityInfo = resolveInfo.activityInfo;  \t\t\t\t\tif (activityInfo == null) return;  \t\t\t\t\tIntent i = new Intent(Intent.ACTION_MAIN);  \t\t\t\t\ti.setClassName(activityInfo.applicationInfo.packageName, activityInfo.name);  \t\t\t\t\tstartActivity(i); \t\t\t\t}  \t\t\t \t\t});;"
+  },
+  {
+    "name": "Gridview",
+    "code": "android.graphics.drawable.GradientDrawable gd = new android.graphics.drawable.GradientDrawable(android.graphics.drawable.GradientDrawable.Orientation.RIGHT_LEFT, new int[]{\n0xFFFDBE00,\n0xFFF44336\n});\ngd.setCornerRadius(20f);\nlinear2.setElevation(6f);\nlinear2.setBackgroundDrawable(gd);"
+  },
+  {
+    "name": "Detect links",
+    "code": "_txt.setClickable(true);\nandroid.text.util.Linkify.addLinks(_txt, android.text.util.Linkify.ALL);\n_txt.setLinkTextColor(Color.parseColor(\"#1E88E5\"));\n_txt.setLinksClickable(true);\n\n*********************************\nCreate MoreBlock\n\nBlock Name..\n\ndetect_links_\n\nAdd veriable...(view)(Textview)\n\ntxt\n\n\n"
+  },
+  {
+    "name": "Linear radius",
+    "code": "android.graphics.drawable.GradientDrawable wd = new android.graphics.drawable.GradientDrawable();\nwd.setColor(Color.parseColor(_wc));\nwd.setCornerRadius((int)_cru);\n_widgets.setElevation((int)_sadw);\n_widgets.setBackground(wd);"
+  },
+  {
+    "name": "Edittext error message",
+    "code": "morebook\n\n_view.setError(_message);\n\nAdd Source\nedittext1.setError(\"Enter your email\");"
+  },
+  {
+    "name": "Ripple effect ",
+    "code": "android.content.res.ColorStateList clr = new android.content.res.ColorStateList(new int[][]{new int[]{}},new int[]{Color.parseColor(_c)}); android.graphics.drawable.RippleDrawable ripdr = new android.graphics.drawable.RippleDrawable(clr, null, null); _view.setBackground(ripdr);\n\n************\non morebolck"
+  },
+  {
+    "name": "Image corner radius",
+    "code": "android.graphics.drawable.GradientDrawable gd = new android.graphics.drawable.GradientDrawable();\ngd.setColor(android.R.color.transparent);\ngd.setCornerRadius(360);\n_imageview.setClipToOutline(true);\n_imageview.setBackground(gd);\n\non More block"
+  },
+  {
+    "name": "Drawer image corner radius",
+    "code": "Glide.with(getContext().getApplicationContext()).load(foto).into(_drawer_imageview3);\n\nandroid.graphics.drawable.GradientDrawable gd = new android.graphics.drawable.GradientDrawable();\ngd.setColor(android.R.color.transparent);\ngd.setCornerRadius(360);\n_drawer_imageview3.setClipToOutline(true);\n_drawer_imageview3.setBackground(gd);\n\nCreate a String variable\n(1) poto"
+  },
+  {
+    "name": "Drawer set text",
+    "code": "_drawer_textview1.setText(email);\n\nCreate a String variable\n(1) email"
+  },
+  {
+    "name": "Textview in capital letters",
+    "code": "textview1.setAllCaps(true);"
+  },
+  {
+    "name": "Set text size",
+    "code": "textview1.setTextSize((float)14);"
+  },
+  {
+    "name": "Linear corner radius/stroke code",
+    "code": "android.graphics.drawable.GradientDrawable CBCJGJE = new android.graphics.drawable.GradientDrawable();\nCBCJGJE.setColor(Color.parseColor(_c));\nCBCJGJE.setCornerRadius((int)_r);\nCBCJGJE.setStroke((int)_s, Color.parseColor(_sc));\n_view.setBackground(CBCJGJE);"
+  },
+  {
+    "name": "Device information",
+    "code": "DisplayMetrics dm = new DisplayMetrics(); getWindowManager().getDefaultDisplay().getMetrics(dm); int width = dm.widthPixels; int height = dm.heightPixels;\n\n_textview.setText( \"SERIAL: \" + Build.SERIAL + \"\n\n\" + \"MODEL: \" + Build.MODEL + \"\n\n\" + \"ID: \" + Build.ID + \"\n\n\" + \"Manufacture: \" + Build.MANUFACTURER + \"\n\n\" + \"Brand: \" + Build.BRAND + \"\n\n\" +\n\"Device Language: \" + Locale.getDefault().getDisplayLanguage() + \"\n\n\" +\n\"Screen Resolution: \" + width + \"x\" + height + \"\n\n\" +\n\"Type: \" + Build.TYPE + \"\n\n\" + \"User: \" + Build.USER + \"\n\n\" + \"BASE: \" + Build.VERSION_CODES.BASE + \"\n\n\" + \"INCREMENTAL: \" + Build.VERSION.INCREMENTAL + \"\n\n\" + \"SDK: \" + Build.VERSION.SDK + \"\n\n\" + \"BOARD: \" + Build.BOARD + \"\n\n\" + \"BRAND: \" + Build.BRAND + \"\n\n\" + \"HOST: \" + Build.HOST + \"\n\n\" + \"FINGERPRINT: \"+Build.FINGERPRINT + \"\n\n\" + \"Version Code: \" + Build.VERSION.RELEASE );\n\ncreate a more block\n(1) mobile\ntextview"
+  },
+  {
+    "name": "Image colour filter ",
+    "code": "imageview1.getDrawable().setColorFilter(Color.parseColor(\"#CCCCCC\"), PorterDuff.Mode.SRC_IN);"
+  },
+  {
+    "name": "Image from url",
+    "code": "url =\"https://google.com\";\n\n\nGlide.with(getContext().getApplicationContext()).load(Uri.parse(url)).into(imageview1);\n\nCreate a Variable String\n(1) url"
+  },
+  {
+    "name": "Toolbar title colour",
+    "code": "getActionBar().setTitle(Html.fromHtml(\"<font color=\\\"#\"+_color+\"\\\">\"+_title+\"</font>\"));"
+  },
+  {
+    "name": "Block screenshot",
+    "code": "getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);"
+  },
+  {
+    "name": "Crop imageview",
+    "code": "resultY = imageRect.top;\n        } else {\n            float resultYVert = Float.POSITIVE_INFINITY;\n            float resultYHoriz = Float.POSITIVE_INFINITY;\n            if (y >= Edge.BOTTOM.getCoordinate() - MIN_CROP_LENGTH_PX)\n                resultYHoriz = Edge.BOTTOM.getCoordinate() - MIN_CROP_LENGTH_PX;\n            if (((Edge.BOTTOM.getCoordinate() - y) * aspectRatio) <= MIN_CROP_LENGTH_PX)\n                resultYVert = Edge.BOTTOM.getCoordinate() - (MIN_CROP_LENGTH_PX / aspectRatio);\n            resultY = Math.min(y, Math.min(resultYHoriz, resultYVert));\n        }\n        return resultY;\n    }\n    private static float adjustBottom(float y, RectF imageRect, float imageSnapRadius, float aspectRatio) {\n        final float resultY;\n        if (imageRect.bottom - y < imageSnapRadius) {\n            resultY = imageRect.bottom;\n        } else {\n            float resultYVert = Float.NEGATIVE_INFINITY;\n            float resultYHoriz = Float.NEGATIVE_INFINITY;\n            if (y <= Edge.TOP.getCoordinate() + MIN_CROP_LENGTH_PX) {\n                resultYVert = Edge.TOP.getCoordinate() + MIN_CROP_LENGTH_PX;\n            }\n            if (((y - Edge.TOP.getCoordinate()) * aspectRatio) <= MIN_CROP_LENGTH_PX) {\n                resultYHoriz = Edge.TOP.getCoordinate() + (MIN_CROP_LENGTH_PX / aspectRatio);\n            }\n            resultY = Math.max(y, Math.max(resultYHoriz, resultYVert));\n        }\n        return resultY;\n    }\n}\n\npublic static class EdgePair {\n    public Edge primary;\n    public Edge secondary;\n    public EdgePair(Edge edge1, Edge edge2) {\n        primary = edge1;\n        secondary = edge2;\n    }\n}\n{"
+  },
+  {
+    "name": "Webview zoom",
+    "code": "webview1.getSettings().setBuiltInZoomControls(true);webview1.getSettings().setDisplayZoomControls(false);\n"
+  },
+  {
+    "name": "Show toast",
+    "code": "showMessage(\"Message\");"
+  },
+  {
+    "name": "Fab hide",
+    "code": "_fab.hide();"
+  },
+  {
+    "name": "Fab visible",
+    "code": "_fab.show();"
+  },
+  {
+    "name": "Fab size",
+    "code": "//Use AUTO,NORMAL,MINI to Change Size\r\n_fab.setSize(FloatingActionButton.SIZE_AUTO);"
+  }
+]
